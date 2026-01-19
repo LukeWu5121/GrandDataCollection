@@ -1,8 +1,21 @@
 # Project Overview
 A script that collects grant data from URLs and outputs standardized JSONL records.
 
-# Installation
+# Description
+Files in this folder:
+- `Grand Data Collection Task Description`: Project File.
+- `main.py`: the scraper CLI that fetches pages, extracts fields, and writes outputs.
+- `README.md`: usage and output documentation.
+- `test_url.txt`: a test file with a single URL.
+- `test_urls.txt`: a test file with multiple URLs.
+- `test_urls_404.txt`: a robustness test file with timeouts, TLS errors, and HTTP errors.
 
+Inputs and outputs:
+- You provide one URL or a text file of URLs.
+- The script writes two files per run: a JSONL output and a JSON report.
+
+# Installation
+Assumes Python 3.10+ is already installed.
 These are **project-specific Python dependencies** required to run this script (they are not part of the Python standard library).
 
 ```bash
@@ -18,27 +31,26 @@ Single URL:
 ```
 python main.py --url https://example.org/grant
 ```
-Note: `test_url.txt` is a test file with a single URL.
 
 Multiple URLs:
 ```
 python main.py --input test_urls.txt
 ```
-Note: `test_urls.txt` is a test file with multiple URLs.
 
 Robustness test (timeouts, TLS, HTTP errors):
 ```
 python main.py --input test_urls_404.txt
 ```
-Note: `test_urls_404.txt` is a robustness test file with mixed failure cases.
 
 # Outputs
 Default output (timestamped):
 ```
 output_YYYYMMDD_HHMMSS.jsonl
 ```
+Each line is one unique URL record with fields like `agency`, `application_link`, `description`, `ein`, `published_date`, and `response_date`.
 
 Run report (missing fields and failed URLs):
 ```
 report for output output_YYYYMMDD_HHMMSS.json
 ```
+The report summarizes overall success/failure counts, missing fields, not-found URLs, and duplicates.
