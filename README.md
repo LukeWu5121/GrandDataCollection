@@ -26,6 +26,12 @@ python main.py --input test_urls.txt
 ```
 Note: `test_urls.txt` is a test file with multiple URLs.
 
+Robustness test (timeouts, TLS, HTTP errors):
+```
+python main.py --input test_urls_404.txt
+```
+Note: `test_urls_404.txt` is a robustness test file with mixed failure cases.
+
 # Outputs
 Default output (timestamped):
 ```
