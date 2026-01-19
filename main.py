@@ -801,10 +801,13 @@ def main():
     seen = set()
     unique_urls: List[str] = []
     duplicate_urls: List[str] = []
+    duplicate_seen = set()
     for u in urls:
         cu = canonicalize_url(u)
         if cu in seen:
-            duplicate_urls.append(u)
+            if cu not in duplicate_seen:
+                duplicate_urls.append(u)
+                duplicate_seen.add(cu)
             continue
         seen.add(cu)
         unique_urls.append(u)
