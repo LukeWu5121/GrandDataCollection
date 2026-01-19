@@ -66,10 +66,22 @@ def normalize_whitespace(s: str) -> str:
     return re.sub(r"\s+", " ", s).strip()
 
 
+def is_non_html_content(text: str, url: str) -> bool:
+    # Detect binary or non-HTML content (e.g., PDFs) to avoid polluting summaries.
+    lower_u = url.lower()
+    if re.search(r"\.(pdf|doc|docx|png|jpg|jpeg|gif|zip)(\?|$)", lower_u):
+        return True
+    head = text.lstrip()[:20]
+    if head.startswith("%PDF"):
+        return True
+    return False
+
+
 SUMMARY_KEYWORDS = [
-    "mission", "purpose", "goal", "focus", "priority", "supports", "funding",
-    "grant", "grants", "eligibility", "eligible", "application", "deadline",
-    "community", "education", "health", "human services", "arts", "research",
+    "eligibility", "eligible", "who may apply", "who can apply", "requirements",
+    "application", "apply", "deadline", "due", "grant size", "award", "awards",
+    "funding", "focus areas", "what we fund", "purpose", "mission", "priority",
+    "supports", "program areas", "grant", "grants",
 ]
 
 EXCLUDE_SUMMARY_KEYWORDS = [
@@ -84,8 +96,27 @@ def split_sentences(text: str) -> List[str]:
     return [p.strip() for p in parts if p and p.strip()]
 
 
-def summarize_text(text: str, max_sentences: int = 4, max_chars: int = 900) -> str:
-    # Summarize by selecting high-signal sentences (mission/eligibility/etc).
+def dedupe_sentences(sentences: List[str]) -> List[str]:
+    # Remove exact-duplicate sentences while preserving order.
+    seen = set()
+    uniq = []
+    for s in sentences:
+        key = normalize_whitespace(s).lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        uniq.append(s)
+    return uniq
+
+
+def summarize_text(
+    text: str,
+    min_sentences: int = 6,
+    max_sentences: int = 10,
+    min_chars: int = 800,
+    max_chars: int = 1500,
+) -> str:
+    # Build a comprehensive summary with eligibility/purpose keywords.
     cleaned = normalize_whitespace(text)
     if not cleaned:
         return "NA"
@@ -97,6 +128,7 @@ def summarize_text(text: str, max_sentences: int = 4, max_chars: int = 900) -> s
             continue
         filtered.append(s)
     parts = filtered if filtered else parts
+    parts = dedupe_sentences(parts)
     if not parts:
         return cleaned[:max_chars]
     scored: List[Tuple[int, str]] = []
@@ -110,10 +142,17 @@ def summarize_text(text: str, max_sentences: int = 4, max_chars: int = 900) -> s
             score += 1
         scored.append((score, s))
     scored.sort(key=lambda x: x[0], reverse=True)
-    selected = [s for _score, s in scored[:max_sentences] if _score > 0]
+    selected = [s for _score, s in scored if _score > 0]
     if not selected:
-        selected = parts[:max_sentences]
+        selected = parts
+    selected = selected[:max_sentences]
+    if len(selected) < min_sentences and len(parts) > len(selected):
+        selected = parts[:min_sentences]
     summary = " ".join(selected)
+    if len(summary) < min_chars and len(parts) > len(selected):
+        # Extend with more sentences if too short.
+        extra = parts[len(selected): max_sentences]
+        summary = " ".join(selected + extra)
     if len(summary) > max_chars:
         summary = summary[:max_chars].rsplit(" ", 1)[0] + "..."
     return summary
@@ -164,7 +203,7 @@ def get_site_name(soup: BeautifulSoup, url: str) -> str:
 
 def extract_main_text(soup: BeautifulSoup) -> str:
     # Remove common boilerplate tags.
-    for tag in soup(["script", "style", "noscript", "svg", "iframe"]):
+    for tag in soup(["script", "style", "noscript", "svg", "iframe", "header", "footer", "nav", "aside"]):
         tag.decompose()
 
     # Prefer <main> or <article> if present.
@@ -399,6 +438,8 @@ def build_description_summary(soup: BeautifulSoup, base_url: str, timeout: int) 
 
     for nav_url in find_navigation_candidates(soup, base_url):
         status, final_url, html = fetch_html(nav_url, timeout=timeout)
+        if is_non_html_content(html, final_url):
+            continue
         nav_soup = BeautifulSoup(html, "lxml")
         nav_text = extract_main_text(nav_soup)
         if looks_like_not_found(status, nav_text):
@@ -409,7 +450,7 @@ def build_description_summary(soup: BeautifulSoup, base_url: str, timeout: int) 
             break
 
     combined = " ".join(texts)
-    return summarize_text(combined, max_sentences=4, max_chars=900)
+    return summarize_text(combined)
 
 
 def build_recovery_candidates(url: str) -> List[str]:
@@ -756,10 +797,11 @@ def write_run_report(
 ) -> str:
     # Write a run report file next to the output JSONL.
     output_name = os.path.basename(output_path)
-    report_name = f"report for output {output_name}.json"
+    output_stem = os.path.splitext(output_name)[0]
+    report_name = f"report for {output_stem}.json"
     report_path = os.path.join(os.path.dirname(output_path), report_name)
     report = {
-        "title": f"report for output {output_name}",
+        "title": f"report for {output_stem}",
         "output_file": output_name,
         "total": len(per_url),
         "success_count": sum(1 for r in per_url if r["status"] == "success"),
