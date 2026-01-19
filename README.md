@@ -4,6 +4,7 @@ A script that collects grant data from URLs and outputs standardized JSONL recor
 # Description
 Files in this folder:
 - `Grand Data Collection Task Description`: Project File.
+- `Log.txt`: Hand-Type Log to record changes.
 - `main.py`: the scraper CLI that fetches pages, extracts fields, and writes outputs.
 - `README.md`: usage and output documentation.
 - `test_url.txt`: a test file with a single URL.

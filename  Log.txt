@@ -1,0 +1,17 @@
+1.16
+Use chatgpt and cursor create basic code with notation
+   # Need to clairfy with prompt language
+Get first jsonl feedback: Description is way too long, hard to read, three null data
+   Ask agent to make a summary for long Description
+   Ask agent to find similar or relate webpage when met page not found instead of put NA
+   ## python -m json.tool "/Users/wxl/Desktop/Grand Data Collection/Project File/output.jsonl"
+   Use the upper command to check the output data
+Try with several webpage info
+Add timestamp in output file to keep test file
+Application_link filled with primary link itself(Didnt meet requirement)
+   Modify the code to navigate itself to other link and not put NA directly
+
+1.17
+Working on standard of finding published_date/response_date
+Still working on desciprion and application_link, the scirpt miss button
+response_date not clear
