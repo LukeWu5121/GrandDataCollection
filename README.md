@@ -1,4 +1,4 @@
-#Project Overview
+# Project Overview
 A script that collects grant data from URLs and outputs standardized JSONL records.
 
 Installation
@@ -9,7 +9,7 @@ pip install httpx beautifulsoup4 lxml python-dateutil dateparser
 Usage
 # Single URL
 python main.py --url https://example.org/grant
-# Batch URLs
+## Batch URLs
 python main.py --input urls.txt
 
 Outputs
