@@ -11,7 +11,39 @@ Add timestamp in output file to keep test file
 Application_link filled with primary link itself(Didnt meet requirement)
    Modify the code to navigate itself to other link and not put NA directly
 
-1.17
+1.17 
 Working on standard of finding published_date/response_date
 Still working on desciprion and application_link, the scirpt miss button
-response_date not clear
+Response_date not clear
+
+1.18 
+Upload README and test file to github
+Create report for each output 
+Fault Injection URLs for Robustness Testing
+HTTP status codes
+	•	404: https://httpstat.us/404
+	•	500: https://httpstat.us/500
+	•	503: https://httpstat.us/503
+	•	418: https://httpstat.us/418
+
+Timeouts / slow responses
+	•	10s delay then 200: https://httpstat.us/200?sleep=10000
+	•	20s delay then 200: https://httpstat.us/200?sleep=20000
+
+Redirect behavior
+	•	302 redirect: https://httpstat.us/302
+	•	5 redirects (httpbin): https://httpbin.org/redirect/5
+
+Content-type / parsing edge cases
+	•	JSON (not HTML): https://httpbin.org/json
+	•	Plain text: https://httpbin.org/robots.txt
+	•	Image PNG: https://httpbin.org/image/png
+	•	Binary bytes: https://httpbin.org/bytes/1024
+	•	Simple HTML: https://example.com
+
+TLS / certificate failures (test SSL error handling)
+	•	Expired cert: https://expired.badssl.com/
+	•	Self-signed cert: https://self-signed.badssl.com/
+	•	Hostname mismatch: https://wrong.host.badssl.com/
+
+To test Robustness, use fake links above and copy paste the same grant link from the pdf
