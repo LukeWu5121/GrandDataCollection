@@ -21,11 +21,11 @@ Assumes Python 3.10+ is already installed.
 These are **project-specific Python dependencies** required to run this script (they are not part of the Python standard library).
 
 ```bash
-python -m venv .venv
+python3 -m venv .venv
 source .venv/bin/activate
 
-pip install -U pip
-pip install httpx beautifulsoup4 lxml python-dateutil dateparser
+python3 -m pip install -U pip
+python3 -m pip install httpx beautifulsoup4 lxml python-dateutil dateparser
 ```
 
 # Usage
