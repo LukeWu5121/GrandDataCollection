@@ -1,0 +1,198 @@
+# HTTP status codes
+https://httpstat.us/404
+https://httpstat.us/500
+https://httpstat.us/503
+https://httpstat.us/418
+
+# Timeouts / slow responses
+https://httpstat.us/200?sleep=10000
+https://httpstat.us/200?sleep=20000
+
+# Redirect behavior
+https://httpstat.us/302
+https://httpbin.org/redirect/5
+
+# Content-type / parsing edge cases
+https://httpbin.org/json
+https://httpbin.org/robots.txt
+https://httpbin.org/image/png
+https://httpbin.org/bytes/1024
+https://example.com
+
+# TLS / certificate failures
+https://expired.badssl.com/
+https://self-signed.badssl.com/
+https://wrong.host.badssl.com/
+
+https://www.wellsfargo.com/private-foundations/marsh-foundation
+https://www.leachfoundation.org/whatwesupport
+https://dmdevosfoundation.org/#about
+https://www.ludwickfoundation.org/about.htm
+http://ludlowfoundation.org/grants.html
+https://www.michaelfound.org/
+https://kuyperfoundation.org/grant-guidelines/
+https://www.wellsfargo.com/private-foundations/bowsher-booher-foundation/
+https://www.barceloux-tibessart.org/
+http://www.themillfoundation.org/
+https://www.sarkeys.org/grant-guidelines
+https://www.faskenfoundation.org/giving-guidelines
+https://www.chautauquagrants.org/local-funding/carnahan-jackson-foundation
+https://www.pci-foundation.org/proposal-guidelines-checklist-faq
+https://www.wellsfargo.com/private-foundations/marsh-foundation
+https://www.leachfoundation.org/whatwesupport
+https://dmdevosfoundation.org/#about
+https://www.ludwickfoundation.org/about.htm
+http://ludlowfoundation.org/grants.html
+https://www.michaelfound.org/
+https://kuyperfoundation.org/grant-guidelines/
+https://www.wellsfargo.com/private-foundations/bowsher-booher-foundation/
+https://www.barceloux-tibessart.org/
+http://www.themillfoundation.org/
+https://www.sarkeys.org/grant-guidelines
+https://www.faskenfoundation.org/giving-guidelines
+https://www.chautauquagrants.org/local-funding/carnahan-jackson-foundation
+https://www.pci-foundation.org/proposal-guidelines-checklist-faq
+https://www.wellsfargo.com/private-foundations/marsh-foundation
+https://www.leachfoundation.org/whatwesupport
+https://dmdevosfoundation.org/#about
+https://www.ludwickfoundation.org/about.htm
+http://ludlowfoundation.org/grants.html
+https://www.michaelfound.org/
+https://kuyperfoundation.org/grant-guidelines/
+https://www.wellsfargo.com/private-foundations/bowsher-booher-foundation/
+https://www.barceloux-tibessart.org/
+http://www.themillfoundation.org/
+https://www.sarkeys.org/grant-guidelines
+https://www.faskenfoundation.org/giving-guidelines
+https://www.chautauquagrants.org/local-funding/carnahan-jackson-foundation
+https://www.pci-foundation.org/proposal-guidelines-checklist-faq
+https://www.wellsfargo.com/private-foundations/marsh-foundation
+https://www.leachfoundation.org/whatwesupport
+https://dmdevosfoundation.org/#about
+https://www.ludwickfoundation.org/about.htm
+http://ludlowfoundation.org/grants.html
+https://www.michaelfound.org/
+https://kuyperfoundation.org/grant-guidelines/
+https://www.wellsfargo.com/private-foundations/bowsher-booher-foundation/
+https://www.barceloux-tibessart.org/
+http://www.themillfoundation.org/
+https://www.sarkeys.org/grant-guidelines
+https://www.faskenfoundation.org/giving-guidelines
+https://www.chautauquagrants.org/local-funding/carnahan-jackson-foundation
+https://www.pci-foundation.org/proposal-guidelines-checklist-faq
+https://www.wellsfargo.com/private-foundations/marsh-foundation
+https://www.leachfoundation.org/whatwesupport
+https://dmdevosfoundation.org/#about
+https://www.ludwickfoundation.org/about.htm
+http://ludlowfoundation.org/grants.html
+https://www.michaelfound.org/
+https://kuyperfoundation.org/grant-guidelines/
+https://www.wellsfargo.com/private-foundations/bowsher-booher-foundation/
+https://www.barceloux-tibessart.org/
+http://www.themillfoundation.org/
+https://www.sarkeys.org/grant-guidelines
+https://www.faskenfoundation.org/giving-guidelines
+https://www.chautauquagrants.org/local-funding/carnahan-jackson-foundation
+https://www.pci-foundation.org/proposal-guidelines-checklist-faq
+
+# HTTP status codes
+https://httpstat.us/404
+https://httpstat.us/500
+https://httpstat.us/503
+https://httpstat.us/418
+
+# Timeouts / slow responses
+https://httpstat.us/200?sleep=10000
+https://httpstat.us/200?sleep=20000
+
+# Redirect behavior
+https://httpstat.us/302
+https://httpbin.org/redirect/5
+
+# Content-type / parsing edge cases
+https://httpbin.org/json
+https://httpbin.org/robots.txt
+https://httpbin.org/image/png
+https://httpbin.org/bytes/1024
+https://example.com
+
+# TLS / certificate failures
+https://expired.badssl.com/
+https://self-signed.badssl.com/
+https://wrong.host.badssl.com/
+
+# HTTP status codes
+https://httpstat.us/404
+https://httpstat.us/500
+https://httpstat.us/503
+https://httpstat.us/418
+
+# Timeouts / slow responses
+https://httpstat.us/200?sleep=10000
+https://httpstat.us/200?sleep=20000
+
+# Redirect behavior
+https://httpstat.us/302
+https://httpbin.org/redirect/5
+
+# Content-type / parsing edge cases
+https://httpbin.org/json
+https://httpbin.org/robots.txt
+https://httpbin.org/image/png
+https://httpbin.org/bytes/1024
+https://example.com
+
+# TLS / certificate failures
+https://expired.badssl.com/
+https://self-signed.badssl.com/
+https://wrong.host.badssl.com/
+# HTTP status codes
+https://httpstat.us/404
+https://httpstat.us/500
+https://httpstat.us/503
+https://httpstat.us/418
+
+# Timeouts / slow responses
+https://httpstat.us/200?sleep=10000
+https://httpstat.us/200?sleep=20000
+
+# Redirect behavior
+https://httpstat.us/302
+https://httpbin.org/redirect/5
+
+# Content-type / parsing edge cases
+https://httpbin.org/json
+https://httpbin.org/robots.txt
+https://httpbin.org/image/png
+https://httpbin.org/bytes/1024
+https://example.com
+
+# TLS / certificate failures
+https://expired.badssl.com/
+https://self-signed.badssl.com/
+https://wrong.host.badssl.com/
+# HTTP status codes
+https://httpstat.us/404
+https://httpstat.us/500
+https://httpstat.us/503
+https://httpstat.us/418
+
+# Timeouts / slow responses
+https://httpstat.us/200?sleep=10000
+https://httpstat.us/200?sleep=20000
+
+# Redirect behavior
+https://httpstat.us/302
+https://httpbin.org/redirect/5
+
+# Content-type / parsing edge cases
+https://httpbin.org/json
+https://httpbin.org/robots.txt
+https://httpbin.org/image/png
+https://httpbin.org/bytes/1024
+https://example.com
+
+# TLS / certificate failures
+https://expired.badssl.com/
+https://self-signed.badssl.com/
+https://wrong.host.badssl.com/

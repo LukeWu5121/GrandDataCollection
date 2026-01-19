@@ -18,13 +18,13 @@ Single URL:
 ```
 python main.py --url https://example.org/grant
 ```
-Note: `url.txt` is a test file with a single URL.
+Note: `test_url.txt` is a test file with a single URL.
 
 Multiple URLs:
 ```
-python main.py --input urls.txt
+python main.py --input test_urls.txt
 ```
-Note: `urls.txt` is a test file with multiple URLs.
+Note: `test_urls.txt` is a test file with multiple URLs.
 
 # Outputs
 Default output (timestamped):
