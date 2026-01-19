@@ -2,9 +2,14 @@
 A script that collects grant data from URLs and outputs standardized JSONL records.
 
 # Installation
-```
+
+These are **project-specific Python dependencies** required to run this script (they are not part of the Python standard library).
+
+```bash
 python -m venv .venv
 source .venv/bin/activate
+
+pip install -U pip
 pip install httpx beautifulsoup4 lxml python-dateutil dateparser
 ```
 
@@ -13,11 +18,13 @@ Single URL:
 ```
 python main.py --url https://example.org/grant
 ```
+Note: `url.txt` is a test file with a single URL.
 
 Multiple URLs:
 ```
 python main.py --input urls.txt
 ```
+Note: `urls.txt` is a test file with multiple URLs.
 
 # Outputs
 Default output (timestamped):
